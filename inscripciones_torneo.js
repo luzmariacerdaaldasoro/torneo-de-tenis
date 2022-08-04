@@ -14,19 +14,19 @@ function crearJugador() {
     let jugadorId = id;
     let jugadorNombre = prompt('Nombre del jugador');
     while(!isNaN(jugadorNombre) || !jugadorNombre) {
-        jugadorNombre=prompt('Ingresa un nombre válido')
+        jugadorNombre=prompt('Ingresa un nombre valido')
     }
     let jugadorApellido = prompt('Apellidos del Jugador');
     while(!isNaN(jugadorApellido) || !jugadorApellido) {
-        jugadorApellido=prompt('Ingresa un apellido válido')
+        jugadorApellido=prompt('Ingresa un apellido valido')
     }
     let jugadorCategoria = prompt('Categorías: A,B,C,D o Novatos');
     while (jugadorCategoria !='A' && jugadorCategoria !='B'&& jugadorCategoria !='C' && jugadorCategoria !='D' && jugadorCategoria!='Novatos') {
-        jugadorCategoria = prompt('Ingresa una categoría válida: A,B,C,D o Novatos')
+        jugadorCategoria = prompt('Ingresa una categoría valida: A,B,C,D o Novatos')
     }
     let jugadorRama = prompt('Rama V o F');
     while( jugadorRama !='V' & jugadorRama!='F') {
-        jugadorRama=prompt('Ingresa una rama válida V o F')
+        jugadorRama=prompt('Ingresa una rama valida V o F')
     }
     let jugadorPuntosRanking = prompt('Puntos Ranking');
     while(isNaN(jugadorPuntosRanking)) {
@@ -44,12 +44,16 @@ while(seguirAgregando === 'S'){
     seguirAgregando = prompt('¿Deseas agregar otro jugador? S / N')
 }
 
-console.log('Lista de jugadores: \n ', jugadores)
+/* console.log('Lista de jugadores: \n ', jugadores) */
 
 
 
 
-const CategoriaAV = jugadores.filter(jugadorCategoria == "A" & jugadorRama == 'V');
+const CategoriaAV = jugadores.filter(jugador => {
+    if (jugador.categoría === 'A' && jugador.rama === 'V')
+    return jugador;
+});
+    /* jugadorCategoria == "A" & jugadorRama == 'V'); */
     /* return {
        id : jugadorId,
        nombre: jugadorNombre,
@@ -59,5 +63,5 @@ const CategoriaAV = jugadores.filter(jugadorCategoria == "A" & jugadorRama == 'V
     } */
 
 
-    console.log ('Lista de jugadores categoría' (jugadorCategoria) (jugadorRama) \n + (CategoriaAV));
+    console.log ('Lista de jugadores categoria A, rama Varonil:\n', CategoriaAV);
 
